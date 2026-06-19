@@ -82,7 +82,11 @@ body{background:var(--cream);color:var(--text-dark);font-family:'Cormorant Garam
   object-fit:cover;
   opacity:0;
   transition:opacity .4s ease;
+  /* Hide native controls & context menu on all browsers/devices */
+  pointer-events:none;
 }
+/* Re-enable pointer events only on the gate overlay so tap still works */
+#entry-gate{pointer-events:auto;}
 #entry-poster{
   position:absolute;
   inset:0;
@@ -92,7 +96,7 @@ body{background:var(--cream);color:var(--text-dark);font-family:'Cormorant Garam
   display:block;
 }
 /* Completely invisible overlay since video has its own instructions */
-#play-overlay{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;}
+#play-overlay{position:absolute;inset:0;z-index:2;pointer-events:auto;opacity:0;cursor:pointer;}
 #entry-gate.fade-out{opacity:0;pointer-events:none}
 
 #main-content{display:none}
@@ -401,7 +405,12 @@ body{background:var(--cream);color:var(--text-dark);font-family:'Cormorant Garam
     id="entry-video"
     playsinline
     webkit-playsinline
+    x-webkit-airplay="deny"
+    disablePictureInPicture
+    controlsList="nodownload nofullscreen noremoteplayback"
     preload="auto"
+    muted
+    style="pointer-events:none;"
   >
     <source src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/June/Karan%20%26%20Mehak%20-%202nd%20dec/Best%20Entry%20Video%20(37).mp4" type="video/mp4">
   </video>
@@ -508,7 +517,7 @@ body{background:var(--cream);color:var(--text-dark);font-family:'Cormorant Garam
         <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--text-mid); margin-bottom: 1.5rem; line-height: 1.6;">
           C-20, Mahendru Enclave, Near Chhatra Stadium<br>Gujranwala Town, New Delhi
         </p>
-        <a class="dir-btn" style="padding: 0.8rem 2rem; font-size: 0.7rem;" href="https://maps.app.goo.gl/StkfBcTadGfAaQLe9" target="_blank" rel="noopener">
+        <a class="dir-btn" style="padding: 0.8rem 2rem; font-size: 0.7rem;" href="https://www.google.com/maps/search/?api=1&query=Gurudwara+Sri+Guru+Harrai+Sahib+Ji+C-20+Mahendru+Enclave+Gujranwala+Town+New+Delhi" target="_blank" rel="noopener">
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           Open in Google Maps
         </a>
@@ -549,7 +558,7 @@ body{background:var(--cream);color:var(--text-dark);font-family:'Cormorant Garam
             <span class="evt-time">7:00 PM onwards</span>
             <span class="evt-addr" style="font-style: italic; color: var(--sage); margin-bottom: 5px;">Adorn yourselves in your festive Pakistani Attires</span>
             <span class="evt-addr">Grand Imperia North Banquet, 7, Opp. Gujranwala Town, Near Saya Auto Maruti Showroom, GT Karnal Road Industrial Area, Ashok Vihar, Delhi</span>
-            <a class="dir-btn" href="https://maps.app.goo.gl/StkfBcTadGfAaQLe9" target="_blank" rel="noopener">
+            <a class="dir-btn" href="https://www.google.com/maps/search/?api=1&query=Grand+Imperia+North+Banquet+GT+Karnal+Road+Industrial+Area+Ashok+Vihar+Delhi" target="_blank" rel="noopener">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               View on Map
             </a>
@@ -569,7 +578,7 @@ body{background:var(--cream);color:var(--text-dark);font-family:'Cormorant Garam
             <span class="evt-time">7:00 PM onwards</span>
             <span class="evt-addr" style="font-style: italic; color: var(--sage); margin-bottom: 5px;">Brightest Punjabi suits and Phulkari dupattas</span>
             <span class="evt-addr">La Stella Banquet, 20, Shivaji Marg, Najafgarh Road, Near Moti Nagar, Opp. DLF Tower, Delhi</span>
-            <a class="dir-btn" href="https://maps.app.goo.gl/StkfBcTadGfAaQLe9" target="_blank" rel="noopener">
+            <a class="dir-btn" href="https://www.google.com/maps/search/?api=1&query=La+Stella+Banquet+20+Shivaji+Marg+Najafgarh+Road+Near+Moti+Nagar+Opp+DLF+Tower+Delhi" target="_blank" rel="noopener">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               View on Map
             </a>
@@ -588,7 +597,7 @@ body{background:var(--cream);color:var(--text-dark);font-family:'Cormorant Garam
             <span class="evt-name">Haldi & Mehndi</span>
             <span class="evt-time">11:30 AM onwards</span>
             <span class="evt-addr">Grand Imperia North Banquet, 7, Opp. Gujranwala Town, Near Saya Auto Maruti Showroom, GT Karnal Road Industrial Area, Ashok Vihar, Delhi</span>
-            <a class="dir-btn" href="https://maps.app.goo.gl/StkfBcTadGfAaQLe9" target="_blank" rel="noopener">
+            <a class="dir-btn" href="https://www.google.com/maps/search/?api=1&query=Grand+Imperia+North+Banquet+GT+Karnal+Road+Industrial+Area+Ashok+Vihar+Delhi" target="_blank" rel="noopener">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               View on Map
             </a>
@@ -609,7 +618,7 @@ body{background:var(--cream);color:var(--text-dark);font-family:'Cormorant Garam
             <span class="evt-name">Sehri Bandi</span>
             <span class="evt-time" style="color:var(--sage-dark)">8:00 AM</span>
             <span class="evt-addr">At Residence: <br>C-45, Gali No. 3, Mahendru Enclave, New Delhi</span>
-            <a class="dir-btn" href="https://maps.app.goo.gl/StkfBcTadGfAaQLe9" target="_blank" rel="noopener">
+            <a class="dir-btn" href="https://www.google.com/maps/search/?api=1&query=C-45+Gali+No+3+Mahendru+Enclave+New+Delhi" target="_blank" rel="noopener">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               View on Map
             </a>
@@ -626,7 +635,7 @@ body{background:var(--cream);color:var(--text-dark);font-family:'Cormorant Garam
             <span class="evt-name" style="font-size:clamp(2.4rem,6vw,3.2rem)">Anand Karaj</span>
             <span class="evt-time" style="color:var(--sage-dark)">10:00 AM</span>
             <span class="evt-addr">Gurudwara Sri Guru Harrai Sahib Ji, C-20, Mahendru Enclave, Near Chhatra Stadium, Gujranwala Town, New Delhi</span>
-            <a class="dir-btn" href="https://maps.app.goo.gl/StkfBcTadGfAaQLe9" target="_blank" rel="noopener">
+            <a class="dir-btn" href="https://www.google.com/maps/search/?api=1&query=Gurudwara+Sri+Guru+Harrai+Sahib+Ji+C-20+Mahendru+Enclave+Near+Chhatra+Stadium+Gujranwala+Town+New+Delhi" target="_blank" rel="noopener">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               View on Map
             </a>
@@ -698,7 +707,7 @@ body{background:var(--cream);color:var(--text-dark);font-family:'Cormorant Garam
             <span class="evt-time">7:00 PM onwards</span>
             <span class="evt-addr" style="font-style: italic; color: var(--sage); margin-bottom: 5px;">Favorite modern Indian trends</span>
             <span class="evt-addr">Majestic Crown, Plot No. 24, Shivaji Marg, Najafgarh Road, Delhi</span>
-            <a class="dir-btn" href="https://maps.app.goo.gl/StkfBcTadGfAaQLe9" target="_blank" rel="noopener">
+            <a class="dir-btn" href="https://www.google.com/maps/search/?api=1&query=Majestic+Crown+Banquet+Plot+24+Shivaji+Marg+Najafgarh+Road+Delhi" target="_blank" rel="noopener">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               View on Map
             </a>
@@ -1048,27 +1057,60 @@ function showVideo() {
   setTimeout(() => { posterCvs.style.opacity = '0'; }, 500);
 }
 
+/* ── VIDEO FIRST-FRAME PRELOAD ──
+   We load + seek to get a frame painted on the poster canvas.
+   On Android the video starts muted so autoplay works, then we
+   unmute on the user tap. */
+entryVid.muted = true;
 entryVid.load();
-entryVid.addEventListener('loadedmetadata', () => { entryVid.currentTime = 0.001; });
-// Only paint poster when seeked, DO NOT autoplay
-entryVid.addEventListener('seeked', () => {
-  paintPoster();
-}, { once: true });
-entryVid.addEventListener('loadeddata', () => {
-  paintPoster();
+
+function tryPaintFromVideo() {
+  if (posterPainted) return;
+  try {
+    const ctx = posterCvs.getContext('2d');
+    ctx.drawImage(entryVid, 0, 0, posterCvs.width, posterCvs.height);
+    const px = ctx.getImageData(0, 0, 4, 4).data;
+    if (px.some(v => v !== 0)) {
+      posterPainted = true;
+      posterCvs.style.opacity = '1';
+    }
+  } catch(e) {}
+}
+
+entryVid.addEventListener('loadedmetadata', () => {
   entryVid.currentTime = 0.001;
+});
+
+entryVid.addEventListener('seeked', () => {
+  tryPaintFromVideo();
+  // Pre-buffer the video silently without fully playing it
+  entryVid.pause();
 }, { once: true });
+
+entryVid.addEventListener('loadeddata', () => {
+  tryPaintFromVideo();
+  if (!posterPainted) entryVid.currentTime = 0.001;
+}, { once: true });
+
+// Fallback: poll for a painted frame for slow-loading Android devices
+const posterPollTimer = setInterval(() => {
+  if (posterPainted) { clearInterval(posterPollTimer); return; }
+  tryPaintFromVideo();
+}, 400);
+setTimeout(() => clearInterval(posterPollTimer), 8000);
 
 gate.addEventListener('click', async () => {
   if (revealed) return;
-  
-  // Start Playing ONLY on tap
+  clearInterval(posterPollTimer);
+
+  // Try unmuted playback first (works on iOS after tap)
   try {
     entryVid.muted = false;
     entryVid.currentTime = 0;
     await entryVid.play();
     showVideo();
   } catch(e) {
+    // Fallback: muted playback (Android strict autoplay)
     try {
       entryVid.muted = true;
       entryVid.currentTime = 0;
